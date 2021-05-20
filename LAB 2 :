@@ -1,0 +1,95 @@
+1)/*C program to find the area of the triangle with
+sides as input using functions*/
+#include<stdio.h>
+#include<math.h>
+float tri(int a,int b,int c);
+void main()
+{
+   int m,n,p;
+   float area;
+   printf("Enter the sides the triangle:\n");
+   scanf("%d%d%d",&m,&n,&p);
+   area = tri(m,n,p);
+   printf("Area of the triangle is %f",area);
+}
+
+float tri(int a,int b,int c)
+{
+  float s;
+  s=(a+b+c)/2;
+  return(sqrt(s*(s-a)*(s-b)*(s-c)));
+}
+
+2)
+/*C program to find the average of three numbers*/
+#include<stdio.h>
+float avg(int a,int b,int c);
+void main()
+{
+   int x,y,z;
+   float average=0;
+   printf("Enter the three numbers:\n");
+   scanf("%d%d%d",&x,&y,&z);
+   average= avg(x,y,z);
+   printf("Average of three integers is %f", average);
+}
+
+float avg(int a,int b,int c)
+{
+   return((a+b+c)/3);
+}
+
+3)
+/*C program to find the smallest of three numbers*/
+#include<stdio.h>
+void main()
+{
+   int a,b,c;
+   printf("Enter the three integrs:\n");
+   scanf("%d%d%d",&a,&b,&c);
+   if(a<b && a<c)
+   {
+     printf("%d is the smallest",a);
+   }
+   else if(b<a && b<c)
+   {
+     printf("%d is the smallest",b);
+   }
+   else
+   {
+     printf("%d is the smallest",c);
+   }
+}
+
+4)
+/*C program to find all the possible roots of the
+Quadratic equation*/
+
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+  int a,b,c;
+  float disc,x1,x2,r,im;
+  printf("Enter the coefficients of the quadratic equation\n");
+  scanf("%d%d%d",&a,&b,&c);
+  disc=((b*b)-(4*a*c));
+  if(disc>0)
+  {
+     x1=(-b+sqrt(disc))/(2*a);
+     x2=(-b-sqrt(disc))/(2*a);
+     printf("Roots are real and distinct %f,%f",x1,x2);
+  }
+  else if(disc=0)
+  {
+     x1=-b/(2*a);
+     x2=-b/(2*a);
+     printf("Roots are equal %f,%f",x1,x2);
+  }
+  else
+  {
+  	 r=-b/(2*a);
+  	 im=sqrt(disc/(2*a));
+    printf("Roots are imaginary %f+i%f,%f-i%f",r,im,r,im);
+  }
+}
