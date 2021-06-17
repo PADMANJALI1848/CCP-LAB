@@ -1,0 +1,128 @@
+/*C program to display the marks of four students in three subjects and also
+to find the highest marks in each subject*/
+
+#include<stdio.h>
+void main()
+{
+    int a[4][3],i,j,highest_marks;
+    for(i=0;i<4;i++)
+    {
+        printf("Enter the marks of the %d student\n",i);
+        for(j=0;j<3;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    for(j=0;j<3;j++)
+    {
+        highest_marks=a[0][j];
+        for(i=1;i<4;i++)
+        {
+            if(a[i][j]>highest_marks)
+            {
+                highest_marks=a[i][j];
+            }
+        }
+        printf("The highest marks in %d subject is %d\n",j,highest_marks);
+    }
+
+}
+
+
+/*C program to find the transpose of the matrix */
+
+#include<stdio.h>
+void main()
+{
+    int m[10][10],i,j,trans_m[10][10];
+    int row_size,col_size;
+    printf("Enter the row and column size of the matrix:\n");
+    scanf("%d%d",&row_size,&col_size);
+    printf("Enter the elements of the matrix:\n");
+    for(i=0;i<row_size;i++)
+    {
+        for(j=0;j<col_size;j++)
+        {
+            scanf("%d",&m[i][j]);
+        }
+    }
+    printf("Matrix is\n");
+    for(i=0;i<row_size;i++)
+    {
+        for(j=0;j<col_size;j++)
+        {
+           printf("%d   ",m[i][j]);
+        }
+        printf("\n");
+    }
+    for(i=0;i<row_size;i++)
+    {
+        for(j=0;j<col_size;j++)
+        {
+           trans_m[j][i]=m[i][j];
+        }
+    }
+    printf("Transpose of the entered matrix is\n");
+    for(i=0;i<col_size;i++)
+    {
+        for(j=0;j<row_size;j++)
+        {
+            printf("%d   ",trans_m[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
+/*C program to find the sum of two matrices*/
+
+include<stdio.h>
+int main()
+{
+    int m1[10][10],m2[10][10],i,j,sum[10][10];
+    int r1,c1,r2,c2,r_sum,c_sum;
+    printf("Enter the row and column size of the first matrix\n");
+    scanf("%d%d",&r1,&c1);
+    printf("Enter the row and column size of the second matrix\n");
+    scanf("%d%d",&r2,&c2);
+    if(r1!=r2||c1!=c2)
+    {
+        printf("The sum of two matrices cannot be performed as their row and column sizes are not equal\n");
+        return 0;
+    }
+    printf("Enter the elements of the first matrix\n");
+    for(i=0;i<r1;i++)
+    {
+        for(j=0;j<c1;j++)
+        {
+            scanf("%d",&m1[i][j]);
+        }
+    }
+    printf("Enter the elements in second matrix:\n");
+    for(i=0;i<r2;i++)
+    {
+        for(j=0;j<c2;j++)
+        {
+            scanf("%d",&m2[i][j]);
+        }
+    }
+    r_sum=r1,c_sum=c1;
+    for(i=0;i<r_sum;i++)
+    {
+        for(j=0;j<c_sum;j++)
+        {
+          sum[i][j]=m1[i][j]+m2[i][j];
+        }
+    }
+    printf("The sum of two matrices is\n");
+    for(i=0;i<r_sum;i++)
+    {
+        printf("\n");
+        for(j=0;j<c_sum;j++)
+        {
+            printf("%d   ",sum[i][j]);
+        }
+    }
+    return 0;
+
+}
