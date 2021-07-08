@@ -1,0 +1,124 @@
+//Book details
+#include <stdio.h>
+int main()
+{
+struct book
+{
+char author[20];
+char title[20];
+float price;
+int no_pages;
+char date_publication[20];
+}book1,book2,book3;
+printf("Enter the details of book 1: Author,title,price,number of pages,date of publication\n");
+scanf("%s %s %f %d %s",book1.author,book1.title,&book1.price,&book1.no_pages,book1.date_publication);
+printf("Enter the details of book 2: Author,title,price,number of pages,date of publication\n");
+scanf("%s %s %f %d %s",book2.author,book2.title,&book2.price,&book2.no_pages,book2.date_publication);
+printf("Enter the details of book 3: Author,title,price,number of pages,date of publication\n");
+scanf("%s %s %f %d %s",book3.author,book3.title,&book3.price,&book3.no_pages,book3.date_publication);
+if(book1.price>book2.price && book1.price>book3.price)
+{
+printf("Book-1 has the highest price\nIts details are:\nAuthor- %s\n Title- %s\nPrice- %f\nNumber of pages- %d\nDate of publication- %s\n",book1.author,book1.title,book1.price,book1.no_pages,book1.date_publication);
+}
+else if (book2.price>book1.price && book2.price>book3.price)
+{
+printf("Book-2 has the highest price\nIts details are:\nAuthor- %s\nTitle- %s\nPrice- %f\nNumber of pages- %d\nDate of publication- %s\n",book2.author,book2.title,book2.price,book2.no_pages,book2.date_publication);
+}
+else
+{
+printf("Book-3 has the highest price\nIts details are:\nAuthor- %s\nTitle- %s\nPrice- %f\nNumber of pages- %d\nDate of publication- n%s\n",book3.author,book3.title,book3.price,book3.no_pages,book3.date_publication);
+}
+return 0;
+}
+
+//Student details
+
+#include<stdio.h>
+void main()
+{
+    struct student
+    {
+        int roll_no;
+        char name[50];
+        char sec[10];
+        char dep[20];
+        float fees;
+        int res;
+    }student1,student2;
+    printf("Enter the details of student 1:Roll number,Name,Section,Department,Fees,Result\n");
+    scanf("%d %s %s %s %f %d",&student1.roll_no,student1.name,student1.sec,student1.dep,&student1.fees,&student1.res);
+    printf("Enter the details of student 2:Roll number,Name,Section,Department,Fees,Result\n");
+    scanf("%d %s %s %s %f %d",&student2.roll_no,student2.name,student2.sec,student2.dep,&student2.fees,&student2.res);
+    if(student1.res>student2.res)
+    {
+        printf("\nStudent-1 has scored the highest marks\n");
+        printf("The student details are:\nRoll number %d\nName %s\nSection %s\nDepartment %s\nFees %f\nResult %d",student1.roll_no,student1.name,student1.sec,student1.dep,student1.fees,student1.res);
+    }
+    else
+    {
+       printf("\nStudent-2 has scored the highest marks\n");
+       printf("The student details are:\nRoll number %d\nName %s\nSection %s\nDepartment %s\nFees %f\nResult %d",student2.roll_no,student2.name,student2.sec,student2.dep,student2.fees,student2.res);
+    }
+}
+
+//Swapping pointers
+#include<stdio.h>
+void main()
+{
+    int n1,n2,temp,*ptr1,*ptr2;
+    printf("Enter two integers\n");
+    scanf("%d%d",&n1,&n2);
+    printf("The two integers before swapping are %d and %d\n",n1,n2);
+    ptr1=&n1;
+    ptr2=&n2;
+    temp=*ptr1;
+    *ptr1=*ptr2;
+    *ptr2=temp;
+    printf("The two integers after swapping are %d and %d\n",n1,n2);
+}
+
+//Arithmetic operations using pointers
+
+#include<stdio.h>
+void main()
+{
+    int n1,n2,sum,diff,product,rem,*ptr1,*ptr2;
+    float div;
+    printf("Enter two integers\n");
+    scanf("%d%d",&n1,&n2);
+    ptr1=&n1;
+    ptr2=&n2;
+    sum=(*ptr1)+(*ptr2);
+    diff=(*ptr1)-(*ptr2);
+    product=((*ptr1)*(*ptr2));
+    div=(float)(*ptr1)/(*ptr2);
+    rem=(*ptr1)%(*ptr2);
+    printf("addition: %d\nSubtraction: %d\nMultiplication: %d\nDivision: %f\nRemainder: %d\n",sum,diff,product,div,rem);
+}
+
+//Files
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+FILE *fp;
+char c;
+char str[40];
+printf("Data Input....\n");
+fp=fopen("BMSCE.txt","w");
+while((c=getchar())!=EOF)
+putc(c,fp);
+fclose(fp);
+printf("Data output.....\n");
+fp=fopen("BMSCE.txt","r");
+if(fp==NULL)
+{
+printf("error\n");
+exit(1);
+}
+fgets(str,40,fp);
+puts(str);
+fclose(fp);
+return 0;
+}
